@@ -15,8 +15,8 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <ul>
-        <li class="conversation-list" *ngFor="let conversation of conversations;let i = index" (click)="selectConversation(conversation.id) " [ngStyle]="{'background-color': currentConversation===conversation.id ? '#e3f2fd' : ' #fafafa'}" >
+      <ul class="conversation-list">
+        <li class="conversation-list-element" *ngFor="let conversation of conversations;let i = index" (click)="selectConversation(conversation.id) " [ngStyle]="{'background-color': currentConversation===conversation.id ? '#e3f2fd' : ' #fafafa'}" >
          <div class="sender-name">{{ getOtherUserNameByConversation(conversation)}}</div>
           <div class="last-message-in-side-bar">{{ getLastMessageInSideBarByMessages(conversation.messages)}}</div>
         </li>
