@@ -14,7 +14,7 @@ section{
   grid-template-columns: repeat(7,14% [col-start]);
   grid-template-rows: repeat(3,33% [row-start]);
   text-align: center;
-  margin: 2% auto 2% auto ;
+  margin: 2% 9% 2% auto;
   height: 15vh;
   width: 50vw;
 }
@@ -109,6 +109,27 @@ button {
 
 button:hover {
   background-color: #071ae7;
+}
+
+.return-button {
+  display: flex;
+  flex-direction: row-reverse;
+  align-self: flex-start;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.return-button:hover {
+}
+
+.top-row{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.return-button {
+  height: 10%;
+  width: 10%;
 }
 
 

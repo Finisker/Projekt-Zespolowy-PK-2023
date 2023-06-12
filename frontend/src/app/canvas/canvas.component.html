@@ -1,13 +1,17 @@
 <section class="vh-100 vw-100">
   <div class="container">
-    <div class="interaction-container">
-      <app-color-picker (colorEvent)="pickColor($event)" class="app-color-picker" />
-      <button mat-raised-button color="primary" type="button" (click)="clearCanvas()" class="clear-button">Clear canvas</button>
-      <button mat-raised-button color="primary" type="button" (click)="clearBackground()" class="clear-background-button">Clear background</button>
-      <app-line-width-picker class="app-line-width-picker" (widthEvent)="pickLineWidth($event)" />
-      <button mat-raised-button color="primary" type="button" (click)="changeLineDrawing()" [ngStyle]="{'opacity': drawLine ? 0.7 : 1.5}" class="line-button">Line</button>
-      <button mat-raised-button color="primary" type="button" (click)="changeEraseMode()" [ngStyle]="{'opacity': erase ? 0.7 : 1}" class="erase-button">Erase</button>
-      <app-background-picker (imageEvent)="pickImage($event)" class="app-background-picker" />
+
+    <div class="top-row">
+      <button class="return-button" style="cursor: pointer"  (click)="goToChat()"><img src="/assets/images/chat-icon.svg" width="35" height="35" class="return-button-img"></button>
+      <div class="interaction-container">
+        <app-color-picker (colorEvent)="pickColor($event)" class="app-color-picker" />
+        <button mat-raised-button color="primary" type="button" (click)="clearCanvas()" class="clear-button">Clear canvas</button>
+        <button mat-raised-button color="primary" type="button" (click)="clearBackground()" class="clear-background-button">Clear background</button>
+        <app-line-width-picker class="app-line-width-picker" (widthEvent)="pickLineWidth($event)" />
+        <button mat-raised-button color="primary" type="button" (click)="changeLineDrawing()" [ngStyle]="{'opacity': drawLine ? 0.7 : 1.5}" class="line-button">Line</button>
+        <button mat-raised-button color="primary" type="button" (click)="changeEraseMode()" [ngStyle]="{'opacity': erase ? 0.7 : 1}" class="erase-button">Erase</button>
+        <app-background-picker (imageEvent)="pickImage($event)" class="app-background-picker" />
+      </div>
     </div>
 
     <div class="board-container">

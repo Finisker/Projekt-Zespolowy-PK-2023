@@ -284,4 +284,8 @@ export class CanvasComponent implements AfterViewInit {
     }
 
   }
+
+  goToChat() {
+    this.router.navigate(['/chat/']);
+  }
 }
