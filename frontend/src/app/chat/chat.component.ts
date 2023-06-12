@@ -106,6 +106,7 @@ export class ChatComponent implements OnInit {
                 conversation.messages = messageList;
               } );
               this.conversations.push(conversation);
+              this.currentConversation = conversation.id;
             }
           )
         });
