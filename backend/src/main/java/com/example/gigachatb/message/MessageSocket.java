@@ -11,6 +11,10 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
@@ -25,6 +29,7 @@ public class MessageSocket {
     @MessageMapping("/hello")
     public void sendMessage(MessageDTO messageDTO) {
         var userList = conversationService.getUsersUniqueIDByMessageDTO(messageDTO);
+        userList = userList.stream().distinct().collect(Collectors.toList());
         messageService.saveMessage(messageDTO);
         //TODO: set id as websocket session
         try {

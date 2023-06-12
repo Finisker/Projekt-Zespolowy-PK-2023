@@ -106,6 +106,7 @@ export class ChatComponent implements OnInit {
                 conversation.messages = messageList;
               } );
               this.conversations.push(conversation);
+              this.currentConversation = conversation.id;
             }
           )
         });
@@ -130,9 +131,14 @@ export class ChatComponent implements OnInit {
 
   selectUser(user: ChatUser) {
     this.currentUser = user.id;
-    this.currentConversation = 0;
+    let checkConv = this.conversations.find(conversation => conversation.participants.find(participant => participant.id == user.id && participant.id != localStorage.getItem('id')));
+    if (checkConv) {
+      console.log("here");
+      this.currentConversation = checkConv.id;
+    } else {
+      this.currentConversation = 0;
+    }
   }
-
   selectConversation(conversationId: number) {
     this.currentConversation = conversationId;
     this.currentUser = '';
